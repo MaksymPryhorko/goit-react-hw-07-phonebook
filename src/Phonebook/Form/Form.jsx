@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import style from "./Form.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import contactsActions from "../../redux/contacts-actions";
-import { getItems } from "../Phonebook-selectors";
+
+import style from "Phonebook/Form/Form.module.css";
+import contactsActions from "redux/contacts-actions";
+import { getItems } from "Phonebook/Phonebook-selectors";
 
 export default function Form() {
   const [name, setName] = useState("");
