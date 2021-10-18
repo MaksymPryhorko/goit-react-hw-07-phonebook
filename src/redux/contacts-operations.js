@@ -1,12 +1,12 @@
 //Асинхронный редакс.
-import contactsApi from "services/contactsApi";
+import * as contactsApi from "services/contactsApi";
 import contactsActions from "redux/contacts-actions";
 
 export const fetchContacts = () => async (dispatch) => {
   dispatch(contactsActions.fetchContactsRequest());
 
   try {
-    const contacts = await contactsApi();
+    const contacts = await contactsApi.fetchContacts();
     dispatch(contactsActions.fetchContactsSuccess(contacts));
     return contacts;
   } catch (error) {
