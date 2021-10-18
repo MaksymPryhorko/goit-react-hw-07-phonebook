@@ -1,4 +1,4 @@
-//Ванилла Тулкит.
+//Асинхронный редакс.
 import { createAction } from "@reduxjs/toolkit";
 
 const addContact = createAction("contacts/addContact");

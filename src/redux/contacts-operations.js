@@ -1,4 +1,4 @@
-//Ванилла Тулкит.
+//Асинхронный редакс.
 import contactsApi from "services/contactsApi";
 import contactsActions from "redux/contacts-actions";
 
