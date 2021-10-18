@@ -6,7 +6,7 @@ import contactsActions from "redux/contacts-actions";
 
 const items = createReducer([], {
   [contactsActions.addContact]: (state, { payload }) => [...state, payload],
-  [contactsActions.fetchContactsSuccess]: (_, { payload }) => payload,
+  [contactsActions.fetchContactsOfFirstLoad]: (_, { payload }) => payload,
   [contactsActions.deleteContact]: (state, { payload }) =>
     state.filter((contact) => contact.id !== payload),
 });

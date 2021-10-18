@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
 
 import style from "Phonebook/Form/Form.module.css";
-import contactsActions from "redux/contacts-actions";
 import { getItems } from "Phonebook/Phonebook-selectors";
+import { addContact } from "redux/contacts-operations";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -34,21 +33,17 @@ export default function Form() {
     return items.find((item) => item.name.toLowerCase() === name.toLowerCase());
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (checkedDuplicate() !== undefined) {
       alert(`${name} is alreade in contacts.`);
       return;
     }
-
-    dispatch(
-      contactsActions.addContact({
-        name,
-        id: uuidv4(),
-        number,
-      })
-    );
-
+    const contact = {
+      name,
+      number,
+    };
+    dispatch(addContact(contact));
     reset();
   };
 

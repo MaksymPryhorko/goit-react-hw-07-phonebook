@@ -7,11 +7,37 @@ export const fetchContacts = () => async (dispatch) => {
 
   try {
     const contacts = await contactsApi.fetchContacts();
-    dispatch(contactsActions.fetchContactsSuccess(contacts));
+    dispatch(contactsActions.fetchContactsOfFirstLoad(contacts));
+    dispatch(contactsActions.fetchContactsSuccess());
     return contacts;
   } catch (error) {
     dispatch(contactsActions.fetchContactsError());
     return [];
+  }
+};
+
+export const addContact = (contact) => async (dispatch) => {
+  dispatch(contactsActions.fetchContactsRequest());
+
+  try {
+    const response = await contactsApi.addContact(contact);
+    dispatch(contactsActions.addContact(response));
+    dispatch(contactsActions.fetchContactsSuccess());
+    return response;
+  } catch (error) {
+    dispatch(contactsActions.fetchContactsError());
+  }
+};
+
+export const deleteContact = (id) => async (dispatch) => {
+  dispatch(contactsActions.fetchContactsRequest());
+
+  try {
+    const response = await contactsApi.deleteContact(id);
+    dispatch(contactsActions.fetchContactsSuccess());
+    return response;
+  } catch (error) {
+    dispatch(contactsActions.fetchContactsError());
   }
 };
 
