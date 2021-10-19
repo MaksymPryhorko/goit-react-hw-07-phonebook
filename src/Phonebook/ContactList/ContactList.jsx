@@ -3,7 +3,7 @@ import React from "react";
 
 import contactsActions from "redux/contacts-actions";
 import style from "Phonebook/ContactList/ContactList.module.css";
-import { getVisibleContacts } from "Phonebook/Phonebook-selectors";
+import { getVisibleContacts } from "redux/contacts-selectors";
 import { deleteContact } from "redux/contacts-operations";
 
 export default function ContactList() {

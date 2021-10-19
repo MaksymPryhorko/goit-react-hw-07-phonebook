@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import style from "Phonebook/Form/Form.module.css";
-import { getItems } from "Phonebook/Phonebook-selectors";
+import { getItems } from "redux/contacts-selectors";
 import { addContact } from "redux/contacts-operations";
 
 export default function Form() {
